@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FrigoMalin – Des recettes avec ce qu’il y a dans ton frigo</title>
+<meta name="description" content="FrigoMalin : plus de 20 recettes faciles. Dis-nous ce qu’il y a dans ton frigo, on te propose quoi cuisiner.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="logo" href="#" aria-label="FrigoMalin, accueil">Frigo<span>Malin</span></a>
+  <button class="fav-link" id="favBtn" aria-pressed="false">♥ Favoris <b id="favCount">0</b></button>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="fridge" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="hero-text">
+      <h1>Qu’est-ce qu’il y a dans ton frigo&nbsp;?</h1>
+      <p>Tape tes ingrédients. On te montre les recettes qui s’en rapprochent le plus.</p>
+      <form id="fridgeForm" class="fridge-form" autocomplete="off">
+        <label for="ing" class="sr">Ajouter un ingrédient</label>
+        <input id="ing" placeholder="œufs, tomates, riz…" enterkeyhint="done">
+        <button type="submit">Ajouter</button>
+      </form>
+      <ul id="chips" class="chips" aria-live="polite"></ul>
+    </div>
+  </section>
+
+  <section class="tools">
+    <label class="sr" for="q">Chercher une recette</label>
+    <input id="q" type="search" placeholder="Chercher une recette…">
+    <div id="filters" class="filters" role="group" aria-label="Filtrer par catégorie"></div>
+  </section>
+
+  <p id="count" class="count" aria-live="polite"></p>
+  <section id="grid" class="grid"></section>
+  <p id="empty" class="empty" hidden>Aucune recette trouvée. Retire un filtre ou un ingrédient.</p>
+</main>
+
+<footer>© FrigoMalin – Cuisine malin, gaspille moins.</footer>
+
+<dialog id="modal" aria-labelledby="mTitle">
+  <button class="close" id="close" aria-label="Fermer">✕</button>
+  <div id="mBody"></div>
+</dialog>
+<script src="script.js"></script>
+</body>
+</html>
+
